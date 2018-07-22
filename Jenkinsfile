@@ -2,7 +2,7 @@ node {
   def namespace = 'devops'
   def appName = 'gerua'
   def feSvcName = "${appName}-frontend"
-  def DockerRegistry = sh(returnStdout: true, script: "cat ../docker_resgistry | cut -f2 -d'='").trim()
+  def DockerRegistry = sh(returnStdout: true, script: "cat ../docker_registry | cut -f2 -d'='").trim()
   def imageTag = "${DockerRegistry}:${namespace}-${appName}-${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
 
   checkout scm
