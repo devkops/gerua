@@ -1,3 +1,7 @@
+##########################
+# @author Amit Gera <er.amitgera@gmail.com>
+##########################
+# [START]
 kind: Service
 apiVersion: v1
 metadata:
@@ -15,3 +19,4 @@ spec:
   selector:
     app: gerua
     role: frontend
+# [END]
