@@ -2,7 +2,10 @@ node {
   def namespace = 'devops'
   def appName = 'gerua'
   def feSvcName = "${appName}-frontend"
-  def imageTag = "${DockerRegistry}:${namespace}.${appName}.${env.BRANCH_NAME}.${env.BUILD_NUMBER}"
+  def map = [:]
+  def envAsText = ['sh', '-c', 'source /var/jenkins_home/workspace/docker_resgistry 2>&1 >/dev/null && env'].execute().text
+  envAsText.eachLine { (key,value) = it.split('=', 2); map[key] = value }
+  def imageTag = "${env.DockerRegistry}:${namespace}.${appName}.${env.BRANCH_NAME}.${env.BUILD_NUMBER}"
 
   checkout scm
 
