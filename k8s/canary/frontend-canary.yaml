@@ -1,3 +1,7 @@
+##########################
+# @author Amit Gera <er.amitgera@gmail.com>
+##########################
+# [START]
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
@@ -29,3 +33,6 @@ spec:
         ports:
         - name: frontend
           containerPort: 80
+      imagePullSecrets:
+      - name: devops-k8s-ap-southeast-1-ecr-registry
+# [END]
